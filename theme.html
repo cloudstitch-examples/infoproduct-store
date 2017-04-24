@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <style>
+      .container {
+        min-height: 100vh;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      .theBook {
+        /* 12em is the width of the columns */
+        background-color: rgba(214, 214, 214, 1);
+        flex: 0 0 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .theBook img {
+        display: block;
+        margin: 100px auto 0 auto;
+        max-width: 70%;
+      }
+      .thePitch {
+        background-color: rgba(0,0,0, 1);
+        color: white;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (min-width: 768px) {
+        .container {
+          flex-direction: row;
+          flex: 1;
+        }
+        .theBook {
+          /* 12em is the width of the columns */
+          flex: 0 0 50%;
+        }
+        .thePitch {
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="theBook">
+        <img src="book.png">
+      </div>
+
+      <div class="thePitch">
+        <div>
+          <h1>This pretend ebook is being sold by a static site</h1>
+          <p class="desc">All you need is a static site project in Github, a Stripe account, and Cloudstitch to handle the backend plumbing: receipts, emails, and Google Drive-based asset storage.</p>
+
+          <form action="{{site.data.cloudstitch.api_endpoint}}" method="POST">
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="pk_test_cxPJbO9XxjcWpu0m52jCFETi"
+              data-amount="100"
+              data-name="Pretend PDF Book"
+              data-description="A pretend PDF Book"
+              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+              data-locale="auto">
+            </script>
+
+          </form>
+          <p class="smallprint">*We will actually charge you, but you are buying a PRETEND book.</p>
+        </div>
+      </div>      
+    </div>
+  </body>
+</html>
