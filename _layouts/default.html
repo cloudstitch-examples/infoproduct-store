@@ -1,0 +1,83 @@
+<html>
+  <head>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        /* Traditional Garamond-based serif stack */
+        font-family: 'Montserrat', sans-serif;
+      }
+      .container {
+        min-height: 100vh;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      .theBook {
+        /* 12em is the width of the columns */
+        background-color: rgba(214, 214, 214, 1);
+        flex: 0 0 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .theBook img {
+        display: block;
+        margin: 0 auto 0 auto;
+        max-height: 500px;
+      }
+
+      .thePitch {
+        text-align: center;
+        background-color: rgba(0,0,0, 1);
+        color: white;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 25px 10px 25px;
+      }
+
+      h1 {
+        text-transform: uppercase;
+        font-size: 2.7em;
+        max-width: 600px;
+      }
+
+      .desc {
+        font-size: 1em;
+        max-width: 600px;
+        line-height: 1.7em;
+      }
+
+      .smallprint {
+        color: #ccc;
+        font-style: italic;
+        size: 0.8em;
+        max-width: 600px;
+
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          flex-direction: row;
+          flex: 1;
+        }
+        .theBook {
+          /* 12em is the width of the columns */
+          flex: 0 0 50%;
+        }
+        .thePitch {
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      {{content}}    
+    </div>
+  </body>
+</html>

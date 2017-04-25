@@ -1,21 +1,29 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
+layout: default
 ---
 
-
-
-<form action="{{site.data.cloudstitch.api_endpoint}}" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_cxPJbO9XxjcWpu0m52jCFETi"
-    data-amount="100"
-    data-name="Pretend PDF Book"
-    data-description="A pretend PDF Book"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="auto">
-  </script>
-</form>
+<div class="theBook">
+  <img src="book.png">
+</div>
+<div class="thePitch">
+  <div>
+    <h1>This pretend ebook is being sold by a static site</h1>
+    <p class="desc">All you need is a static site project in Github, a Stripe account, and Cloudstitch to handle the backend plumbing: receipts, emails, and Google Drive-based asset storage.</p>
+    <form action="{{site.data.cloudstitch.api_endpoint}}" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_live_or1sC0BNcVEejcrQqDGx666f"
+        data-amount="100"
+        data-name="Pretend PDF Book"
+        data-description="A pretend PDF Book"
+        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+        data-locale="auto">
+      </script>
+      <input type="hidden" name="stripeAmount" value="100" />
+      <input type="hidden" name="stripeCurrency" value="usd" />
+      <input type="hidden" name="stripeDescription" value ="A pretend book." />
+    </form>
+    <p class="smallprint">*We will actually charge you, but you are buying a PRETEND book.</p>
+  </div>
+</div>  
 
