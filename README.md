@@ -1,1 +1,0 @@
-# infoproduct-store

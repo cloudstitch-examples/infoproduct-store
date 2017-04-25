@@ -22,6 +22,7 @@ layout: default
       <input type="hidden" name="stripeAmount" value="100" />
       <input type="hidden" name="stripeCurrency" value="usd" />
       <input type="hidden" name="stripeDescription" value ="A pretend book." />
+      <input type="hidden" name="_redirect" value =" https://cloudstitch-examples.github.io/infoproduct-store/thanks" />
     </form>
     <p class="smallprint">*We will actually charge you, but you are buying a PRETEND book.</p>
   </div>
