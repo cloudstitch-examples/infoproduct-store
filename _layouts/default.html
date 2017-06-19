@@ -1,7 +1,6 @@
 <html>
   <head>
-
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
       html, body {
         margin: 0;
@@ -9,20 +8,22 @@
         /* Traditional Garamond-based serif stack */
         font-family: 'Montserrat', sans-serif;
       }
+
       .container {
         min-height: 100vh;
         display: flex;
         flex: 1;
-        flex-direction: column;
+        flex-direction: row;
       }
+
       .theBook {
         /* 12em is the width of the columns */
-        background-color: rgba(214, 214, 214, 1);
         flex: 0 0 50%;
         display: flex;
         align-items: center;
         justify-content: center;
       }
+
       .theBook img {
         display: block;
         margin: 0 auto 0 auto;
@@ -30,14 +31,33 @@
       }
 
       .thePitch {
+        background: rgba(0,163,204,1);
+        background: -moz-linear-gradient(45deg, rgba(0,163,204,1) 0%, rgba(0,230,180,1) 100%);
+        background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,163,204,1)), color-stop(100%, rgba(0,230,180,1)));
+        background: -webkit-linear-gradient(45deg, rgba(0,163,204,1) 0%, rgba(0,230,180,1) 100%);
+        background: -o-linear-gradient(45deg, rgba(0,163,204,1) 0%, rgba(0,230,180,1) 100%);
+        background: -ms-linear-gradient(45deg, rgba(0,163,204,1) 0%, rgba(0,230,180,1) 100%);
+        background: linear-gradient(45deg, rgba(0,163,204,1) 0%, rgba(0,230,180,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a3cc', endColorstr='#00e6b4', GradientType=1 );        
+
         text-align: center;
-        background-color: rgba(0,0,0, 1);
         color: white;
         flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 10px 25px 10px 25px;
+
+        padding: 40px 70px;
+      }
+
+      #purchaseButton {
+        background-color: #FFF182;
+        color: #009FC9;
+        text-transform: uppercase;
+        padding: 0.4em 0.8em;
+        border: none;
+        font-size: 1.2em;
+        border-radius: 5px;
       }
 
       h1 {
@@ -57,23 +77,21 @@
         font-style: italic;
         size: 0.8em;
         max-width: 600px;
-
       }
 
-      @media (min-width: 768px) {
+      @media (max-width: 600px) {
         .container {
-          flex-direction: row;
-          flex: 1;
+          display: block;
         }
         .theBook {
           /* 12em is the width of the columns */
-          flex: 0 0 50%;
+          display: block;
         }
         .thePitch {
-          flex: 1;
+          display: block;
         }
       }
-    </style>
+    </style>    
   </head>
   <body>
     <div class="container">

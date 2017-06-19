@@ -1,0 +1,65 @@
+---
+layout: default
+---
+
+<div class="theBook">
+  <img src="book.png">
+</div>
+<div class="thePitch">
+  <div>
+    <h1>This eBook is being sold by a static site</h1>
+    <p class="desc">Cloudstitch processes your Stripe payment form, saves the purchase to a spreadsheet, and emails your customer. No backed, no hassle.</p>
+    <form id="purchaseForm" action="{{site.data.cloudstitch.api_endpoint}}" method="POST">
+      <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
+      <button 
+        id="purchaseButton"
+        data-key="pk_live_or1sC0BNcVEejcrQqDGx666f"
+        data-amount="100"
+        data-name="Pretend PDF eBook"
+        data-description="A pretend PDF Book"
+        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+        data-locale="auto"            
+      >Pay with Card</button>
+
+      <input type="hidden" name="stripeAmount" value="100" />
+      <input type="hidden" name="stripeCurrency" value="usd" />
+      <input type="hidden" name="stripeDescription" value ="A pretend book." />
+      <input type="hidden" name="_redirect" value =" https://cloudstitch-examples.github.io/infoproduct-store/thanks" />
+    </form>
+    <p class="smallprint">*We will actually charge you, but you are buying a PRETEND book.</p>
+  </div>
+</div>  
+
+
+<script src="https://checkout.stripe.com/v2/checkout.js"></script>
+
+<script>
+var handler = StripeCheckout.configure({
+  key: 'pk_live_or1sC0BNcVEejcrQqDGx666f',
+  image: 'https://s3.amazonaws.com/stripe-uploads/acct_14ftSZKxyiDJW3pQmerchant-icon-1415226914967-cloudstitch-square.png',
+  locale: 'auto',
+  token: function(token) {
+    var el = document.createElement('input');
+    el.setAttribute('type', 'hidden');
+    el.setAttribute('name', 'stripetoken');
+    el.setAttribute('value', token.id);    
+    document.getElementById('purchaseForm').appendChild(el);
+    document.getElementById('purchaseForm').submit();
+  }
+});
+
+document.getElementById('purchaseButton').addEventListener('click', function(e) {
+  // Open Checkout with further options:
+  e.preventDefault();
+  handler.open({
+    name: 'Cloudstitch',
+    description: "A pretend PDF eBook",
+    amount: 100
+  });
+});
+
+// Close Checkout on page navigation:
+window.addEventListener('popstate', function() {
+  handler.close();
+});
+</script>
