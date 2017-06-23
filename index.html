@@ -13,7 +13,7 @@ layout: default
       <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
       <button 
         id="purchaseButton"
-        data-key="pk_live_or1sC0BNcVEejcrQqDGx666f"
+        data-key="pk_test_cxPJbO9XxjcWpu0m52jCFETi"
         data-amount="100"
         data-name="Pretend PDF eBook"
         data-description="A pretend PDF Book"
@@ -26,22 +26,22 @@ layout: default
       <input type="hidden" name="stripeDescription" value ="A pretend book." />
       <input type="hidden" name="_redirect" value =" https://cloudstitch-examples.github.io/infoproduct-store/thanks" />
     </form>
-    <p class="smallprint">*We will actually charge you, but you are buying a PRETEND book.</p>
+    <p class="smallprint">This site is in **Development** mode. Use card number <b>4242 4242 4242 4242</b> with any future date for expiry and any CVC.</p>
+    </p>
   </div>
 </div>  
-
 
 <script src="https://checkout.stripe.com/v2/checkout.js"></script>
 
 <script>
 var handler = StripeCheckout.configure({
-  key: 'pk_live_or1sC0BNcVEejcrQqDGx666f',
+  key: 'pk_test_cxPJbO9XxjcWpu0m52jCFETi',
   image: 'https://s3.amazonaws.com/stripe-uploads/acct_14ftSZKxyiDJW3pQmerchant-icon-1415226914967-cloudstitch-square.png',
   locale: 'auto',
   token: function(token) {
     var el = document.createElement('input');
     el.setAttribute('type', 'hidden');
-    el.setAttribute('name', 'stripetoken');
+    el.setAttribute('name', 'stripeToken');
     el.setAttribute('value', token.id);    
     document.getElementById('purchaseForm').appendChild(el);
     document.getElementById('purchaseForm').submit();
